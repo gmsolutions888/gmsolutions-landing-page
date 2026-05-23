@@ -83,6 +83,25 @@ const statObserver = new IntersectionObserver((entries) => {
 
 statNumbers.forEach(el => statObserver.observe(el));
 
+// Cookie consent
+const cookieBanner = document.getElementById('cookieBanner');
+const cookieAccept = document.getElementById('cookieAccept');
+const cookieDecline = document.getElementById('cookieDecline');
+
+if (localStorage.getItem('cookieConsent')) {
+  cookieBanner.classList.add('hidden');
+}
+
+cookieAccept.addEventListener('click', () => {
+  localStorage.setItem('cookieConsent', 'accepted');
+  cookieBanner.classList.add('hidden');
+});
+
+cookieDecline.addEventListener('click', () => {
+  localStorage.setItem('cookieConsent', 'declined');
+  cookieBanner.classList.add('hidden');
+});
+
 // Contact form handler
 document.getElementById('contactForm').addEventListener('submit', (e) => {
   e.preventDefault();

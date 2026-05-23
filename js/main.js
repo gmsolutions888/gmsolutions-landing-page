@@ -116,6 +116,17 @@ document.getElementById('contactForm').addEventListener('submit', async (e) => {
   e.preventDefault();
   const form = e.target;
   const btn = form.querySelector('button[type="submit"]');
+
+  // Check reCAPTCHA
+  const recaptchaResponse = grecaptcha.getResponse();
+  if (!recaptchaResponse) {
+    const captchaEl = form.querySelector('.g-recaptcha');
+    captchaEl.style.outline = '2px solid #ef4444';
+    captchaEl.style.borderRadius = '4px';
+    setTimeout(() => { captchaEl.style.outline = ''; }, 3000);
+    return;
+  }
+
   btn.textContent = 'Sending...';
   btn.disabled = true;
 
@@ -129,6 +140,7 @@ document.getElementById('contactForm').addEventListener('submit', async (e) => {
       btn.textContent = 'Send Message';
       btn.disabled = false;
       form.reset();
+      grecaptcha.reset();
       successModal.classList.add('active');
     } else {
       throw new Error('Failed');

@@ -537,6 +537,10 @@ ul { list-style: none; }
 
 .form-group textarea { resize: vertical; }
 
+.contact-form .g-recaptcha {
+  margin-bottom: 20px;
+}
+
 .contact-form .btn {
   width: 100%;
   padding: 14px;

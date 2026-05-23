@@ -102,6 +102,15 @@ cookieDecline.addEventListener('click', () => {
   cookieBanner.classList.add('hidden');
 });
 
+// Success modal
+const successModal = document.getElementById('successModal');
+document.getElementById('modalClose').addEventListener('click', () => {
+  successModal.classList.remove('active');
+});
+successModal.addEventListener('click', (e) => {
+  if (e.target === successModal) successModal.classList.remove('active');
+});
+
 // Contact form handler via Formspree
 document.getElementById('contactForm').addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -117,14 +126,10 @@ document.getElementById('contactForm').addEventListener('submit', async (e) => {
       headers: { 'Accept': 'application/json' }
     });
     if (res.ok) {
-      btn.textContent = 'Message Sent!';
-      btn.style.background = '#10b981';
+      btn.textContent = 'Send Message';
+      btn.disabled = false;
       form.reset();
-      setTimeout(() => {
-        btn.textContent = 'Send Message';
-        btn.style.background = '';
-        btn.disabled = false;
-      }, 3000);
+      successModal.classList.add('active');
     } else {
       throw new Error('Failed');
     }

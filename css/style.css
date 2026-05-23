@@ -663,6 +663,67 @@ ul { list-style: none; }
 }
 
 /* ============================================
+   Success Modal
+   ============================================ */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 40px 36px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: var(--shadow-lg);
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal {
+  transform: scale(1);
+}
+
+.modal-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 16px;
+  color: #10b981;
+}
+
+.modal h3 {
+  font-size: 1.4rem;
+  color: var(--dark);
+  margin-bottom: 10px;
+}
+
+.modal p {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.modal .btn {
+  min-width: 140px;
+}
+
+/* ============================================
    Cookie Consent Banner
    ============================================ */
 .cookie-banner {

@@ -309,95 +309,113 @@ ul { list-style: none; }
 }
 
 /* ============================================
-   Provivo Section
+   Our Products Section
    ============================================ */
-.provivo {
+.products {
   background: var(--white);
+  text-align: center;
 }
 
-.provivo-grid {
+.product-row {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 1.2fr 0.8fr;
   gap: 60px;
   align-items: center;
+  text-align: left;
 }
 
-.provivo-label {
+.product-row.reverse {
+  grid-template-columns: 0.8fr 1.2fr;
+  direction: rtl;
+}
+
+.product-row.reverse > * {
+  direction: ltr;
+}
+
+.product-label {
   display: inline-block;
   background: rgba(0, 171, 224, 0.1);
   color: var(--primary);
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
   padding: 6px 16px;
   border-radius: 20px;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
-.provivo-text .section-title {
-  text-align: left;
-  font-size: 2.4rem;
+.product-info h3 {
+  font-size: 2rem;
+  color: var(--dark);
+  margin-bottom: 12px;
 }
 
-.provivo-lead {
-  font-size: 1.1rem;
+.product-lead {
+  font-size: 1.05rem;
   color: var(--text);
-  margin-bottom: 32px;
   line-height: 1.7;
+  margin-bottom: 24px;
 }
 
-.provivo-features {
+.product-highlights {
+  list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  margin-bottom: 36px;
+  gap: 12px;
+  margin-bottom: 28px;
 }
 
-.provivo-feature {
+.product-highlights li {
   display: flex;
-  gap: 16px;
-  align-items: flex-start;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-light);
+  font-size: 0.95rem;
 }
 
-.provivo-feature-icon {
-  width: 40px;
-  height: 40px;
-  min-width: 40px;
-  background: rgba(0, 171, 224, 0.1);
+.product-highlights li svg {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
   color: var(--primary);
-  border-radius: 10px;
+}
+
+.product-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-screenshot {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 16px;
+  box-shadow: var(--shadow-lg);
+}
+
+.product-icon-large {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  border-radius: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8px;
-}
-
-.provivo-feature strong {
-  display: block;
-  color: var(--dark);
-  font-size: 0.95rem;
-  margin-bottom: 2px;
-}
-
-.provivo-feature p {
-  color: var(--text-light);
-  font-size: 0.9rem;
-  line-height: 1.5;
-  margin: 0;
-}
-
-/* Provivo Screenshot */
-.provivo-visual {
-  display: flex;
-  justify-content: center;
-}
-
-.provivo-screenshot {
-  width: 100%;
-  max-width: 500px;
-  border-radius: 16px;
+  color: var(--white);
   box-shadow: var(--shadow-lg);
+}
+
+.product-icon-large svg {
+  width: 100px;
+  height: 100px;
+}
+
+.product-divider {
+  height: 1px;
+  background: #e5e7eb;
+  margin: 60px 0;
 }
 
 /* ============================================
@@ -792,8 +810,10 @@ ul { list-style: none; }
    Responsive
    ============================================ */
 @media (max-width: 1024px) {
-  .provivo-grid {
+  .product-row,
+  .product-row.reverse {
     grid-template-columns: 1fr;
+    direction: ltr;
     gap: 40px;
   }
   .about-grid {

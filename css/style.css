@@ -412,6 +412,12 @@ ul { list-style: none; }
   height: 100px;
 }
 
+.product-logo-img {
+  width: 100%;
+  max-width: 280px;
+  border-radius: 16px;
+}
+
 .product-divider {
   height: 1px;
   background: #e5e7eb;
